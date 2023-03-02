@@ -4,12 +4,15 @@ on:
   push:
     branches: ["main"]
 
+permissions:
+  contents: read
+  pages: write
+  id-token: write
 
 jobs:
   build:
     name: build
     runs-on: ubuntu-latest
-
 
     steps:
       - name: Checkout Repo
@@ -29,6 +32,9 @@ jobs:
   deploy:
     name: deploy
     runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
 
     steps:
       - name: Checkout Repo
