@@ -18,7 +18,7 @@ const router = createBrowserRouter(
       <Route path="about" element={<About />} />
     </Route>
   )
-);
+  , { basename: '/react-router-test/' });
 
 ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
   <React.StrictMode>
